@@ -1,28 +1,25 @@
-//ServerList
-import {Container, Separator} from './styles'
+//ServerButton
+import {Button} from './styles'
 
+import Logo from '../../assets/discord-icon.png'
 
-const ServerList: React.FC = () => {
+export interface Props {
+    selected?: boolean;
+    isHome?: boolean;
+    hasNotifications?: boolean;
+    mentions?: number;
+}
+const ServerButton: React.FC<Props> = ({
+    selected,
+    isHome,
+    hasNotifications,
+    mentions
+}) => {
     return(
-        <Container>
-            <ServerButton isHome/>
-            <Separator/>
-
-            <ServerButton/>
-            <ServerButton hasNotifications/>
-            <ServerButton mentions={3}/>
-            <ServerButton/>
-            <ServerButton/>
-            <ServerButton/>
-            <ServerButton hasNotifications/>
-            <ServerButton/>
-            <ServerButton/>
-            <ServerButton mentions={72}/>
-            <ServerButton/>
-            <ServerButton/>
-            
-        </Container>
+      <Button>
+          {isHome && <img src={Logo} alt='discord'/>}
+      </Button>
     )
 };
 
-export default ServerList;
+export default ServerButton;
