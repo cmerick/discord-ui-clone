@@ -8,8 +8,7 @@ function App() {
   return (
     <>
     <Layout/>
-    <GlobalStyles/>
-    <h1>teste</h1>
+    <GlobalStyles/> 
     </>
    
   );

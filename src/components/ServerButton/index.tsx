@@ -1,11 +1,11 @@
 //ServerButton
-import {Button} from './styles'
+import { Button } from './styles'
 
 import Logo from '../../assets/discord-icon.png'
 
 export interface Props {
-    selected?: boolean;
     isHome?: boolean;
+    selected?: boolean;
     hasNotifications?: boolean;
     mentions?: number;
 }
@@ -15,10 +15,16 @@ const ServerButton: React.FC<Props> = ({
     hasNotifications,
     mentions
 }) => {
-    return(
-      <Button>
-          {isHome && <img src={Logo} alt='discord'/>}
-      </Button>
+    return (
+        <Button
+            isHome={isHome}
+            hasNotifications={hasNotifications}
+            mentions={mentions}
+            className={selected ? 'active' : ''}
+        >
+
+            {isHome && <img src={Logo} alt="discord" />}
+        </Button>
     )
 };
 
