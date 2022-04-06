@@ -41,7 +41,7 @@ export default createGlobalStyle`
      
         --link: #5d80d6;
      
-        --discord: #6633cc;
+        --home: #6633cc;
       }
 
 `;
