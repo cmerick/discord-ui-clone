@@ -1,13 +1,22 @@
 //ChannelData
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import { Container, Messages, InputWrapper, Input, InputIcon } from './styles'
 import ChannelMessage, {Mention} from '../ChannelMessage'
 
-
 const ChannelData: React.FC = () => {
+    
+    const messagesRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+        
+    useEffect(() => {
+        const div = messagesRef.current;
+        if (div) div.scrollTop = div.scrollHeight;
+    }, [messagesRef]); 
+
     return (
+       
+
         <Container>
-            <Messages>
+            <Messages ref={messagesRef}>
                 <ChannelMessage
                     author='Erick Castilho'
                     date='25/06/2022'
@@ -95,8 +104,6 @@ const ChannelData: React.FC = () => {
                     date='25/06/2022'
                     content= 'Isto é uma mensagem'
                 />
-
-
             </Messages>
             <InputWrapper>
                 <Input type='text' placeholder='Conversar em #chat-livre'/>
